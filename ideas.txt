@@ -1,0 +1,24 @@
+#1
+enable to set the seed 
+resample from the original dataset
+fit linreg logreg
+chose to transform data with their logs
+plot with plotly
+
+
+#2
+randomly throw points on a map with leaflet
+choose the area around the city of Edinburgh where the points fall into
+choose the distrubution where the prices are coming from
+choose min and max
+live update the map
+Show plotly hist of prices
+
+
+
+
+
+#3
+Show how something changes over the years
+Have a slider to go through the years
+Update the plotly with the new year's data
