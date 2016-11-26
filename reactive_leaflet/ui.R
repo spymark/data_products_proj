@@ -20,6 +20,8 @@ ui <- fluidPage(
       actionButton("recalc", "Apply selections"),
       h2("Documentation"),
       p("This shiny app showcases a map made with leaflet and a D3 plot made with plotly(ggplotly)"),
+      p("If a lot of properties are close to each other, they will be clustered together. You can click through until 
+        you reach an individual marker. Clicking on the marker shows the price of the selected property"),
       tags$b("Use the toggle buttons below to see the documentation for each section"),
       actionButton("toggle", "Choosing the map style"),
       conditionalPanel(
@@ -45,9 +47,17 @@ ui <- fluidPage(
         p("To apply your selection on the map, you need to click the"), tags$b("Apply selection"), ("button")
       ),
       br(),
-      actionButton("toggle4", "Code"),
+      actionButton("toggle4", "Price Distribution plot"),
       conditionalPanel(
         condition = "input.toggle4 % 2 == 1",
+        p("The plot below the map, is generated each time you apply a new selection on the prices or number of markers"),
+        p("It's actually created in ggplot2, but using ggplotly the plot is enhanced into a D3 interactive visualisation,
+          allowing zooming in and out and also giving some info when we hover over")
+      ),
+      br(),
+      actionButton("toggle5", "Code"),
+      conditionalPanel(
+        condition = "input.toggle5 % 2 == 1",
         p("You can see the entire code and how it reacts, on the right panel"),
         p("You can chose 'show below', but be aware that the price plot might not look great until you apply selections again")
       )
