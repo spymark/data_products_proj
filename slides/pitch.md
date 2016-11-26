@@ -1,20 +1,18 @@
-pitch
+An interactive property map, made with Shiny, leaflet and plotly
 ========================================================
-author: 
-date: 
+author: Spyros Marketos
+date: 27/11/2016
 autosize: true
 transition: rotate
 
-First Slide
+Slide 2
 ========================================================
-
-For more details on authoring R presentations please visit <https://support.rstudio.com/hc/en-us/articles/200486468>.
 
 - Bullet 1
 - Bullet 2
 - Bullet 3
 
-Slide With Code
+Slide 3
 ========================================================
 
 
@@ -32,7 +30,10 @@ summary(cars)
  Max.   :25.0   Max.   :120.00  
 ```
 
-Slide With Plot
+Slide 4
 ========================================================
 
 ![plot of chunk unnamed-chunk-2](pitch-figure/unnamed-chunk-2-1.png)
+Slide 5
+========================================================
+"https://github.com/spymark/data_products_proj"
