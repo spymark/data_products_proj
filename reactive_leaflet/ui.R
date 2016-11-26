@@ -62,7 +62,7 @@ ui <- fluidPage(
         p("You can chose 'show below', but be aware that the price plot might not look great until you apply selections again")
       ),
       br(),
-      p("All the code can be found at "), code("https://github.com/spymark/data_products_proj")
+      p("All the code can be found in this github ", a("repository.", href = "https://github.com/spymark/data_products_proj"))
 
           ),
     
