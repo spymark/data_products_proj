@@ -60,7 +60,9 @@ ui <- fluidPage(
         condition = "input.toggle5 % 2 == 1",
         p("You can see the entire code and how it reacts, on the right panel"),
         p("You can chose 'show below', but be aware that the price plot might not look great until you apply selections again")
-      )
+      ),
+      br(),
+      p("All the code can be found at "), code("https://github.com/spymark/data_products_proj")
 
           ),
     
