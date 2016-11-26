@@ -6,28 +6,52 @@ library(plotly)
 
 ui <- fluidPage(
   
-  titlePanel("Shiny reactive map"),
+  titlePanel("Interactive property map"),
   
   sidebarLayout(
     
     sidebarPanel(
-      h3("Documentation"),
-      actionButton("toggle", "Toggle the following text"),
-      conditionalPanel(
-        condition = "input.toggle % 2 == 1",
-        "This text gets toggled on and off" ,
-        code('install.packages(c("shiny", "leaflet", "tidyverse", "plotly"))')
-      ),
-      p("This shiny app showcases a map made with leaflet and a D3 plot made with plotly(ggplotly"),
-      p("These are all the packages needed"),
       
-      radioButtons("radio", label = h2("Choose Map Style"),
+      radioButtons("radio", label = h3("Choose Map Style"),
                    choices = list("Stamen.TonerLite", "OpenTopoMap" ,"OpenStreetMap.Mapnik"), 
                    selected = "Stamen.TonerLite"),
-      sliderInput("slider1", label = h2("Define the price range"), min = 450, max = 1500, value = c(600, 850)),
-      sliderInput("slider2", label = h2("Number of markers"), min = 1000, max = 10000, value = 5000),
-      actionButton("recalc", "Generate new data")
-      
+      sliderInput("slider1", label = h3("Define the price range"), min = 450, max = 1500, value = c(600, 850)),
+      sliderInput("slider2", label = h3("Number of markers"), min = 1000, max = 10000, value = 5000),
+      actionButton("recalc", "Apply selections"),
+      h2("Documentation"),
+      p("This shiny app showcases a map made with leaflet and a D3 plot made with plotly(ggplotly)"),
+      tags$b("Use the toggle buttons below to see the documentation for each section"),
+      actionButton("toggle", "Choosing the map style"),
+      conditionalPanel(
+        condition = "input.toggle % 2 == 1",
+        p("Chose one of three different styles of maps"),
+        p("Your selection will be applied instantly to the map on the main panel"),
+        p("If you can only see the markers and not the map, please zoom out to allow for some time to load the map")
+      ),
+      br(),
+      actionButton("toggle2", "Price Range"),
+      conditionalPanel(
+        condition = "input.toggle2 % 2 == 1",
+        p("With this slider you can select the price range that will be associated with the marker popups on the map"),
+        p("The actual numbers are generated from a uniform distribution in the selected range"),
+        p("To apply your selection on the map, you need to click the 'Apply selection' button")
+      ),
+      br(),
+      actionButton("toggle3", "Number of markers"),
+      conditionalPanel(
+        condition = "input.toggle3 % 2 == 1",
+        p("With this slider you can select the number of markers that will be placed on the map"),
+        p("The coordinates of the markers come from a uniform distribution bound around the area of the city of Edinburgh"),
+        p("To apply your selection on the map, you need to click the"), tags$b("Apply selection"), ("button")
+      ),
+      br(),
+      actionButton("toggle4", "Code"),
+      conditionalPanel(
+        condition = "input.toggle4 % 2 == 1",
+        p("You can see the entire code and how it reacts, on the right panel"),
+        p("You can chose 'show below', but be aware that the price plot might not look great until you apply selections again")
+      )
+
           ),
     
     mainPanel(
