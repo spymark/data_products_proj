@@ -29,7 +29,8 @@ server <- function(input, output, session) {
   output$mymap <- renderLeaflet({
     leaflet() %>%
       addProviderTiles( map_style(),options = providerTileOptions(noWrap = TRUE)) %>%
-      addMarkers(data = points(), clusterOptions = markerClusterOptions(), popup = paste0("Property price", "<br>","£", as.character(price()), " pcm"))
+      addMarkers(data = points(), clusterOptions = markerClusterOptions(), 
+                 popup = paste0("Property price", "<br>","£", as.character(price()), " pcm"))
     
   })
   
