@@ -16,31 +16,41 @@ What can you do in the app?
 - Explore the actual distribution of prices 
 - Observe code execution as it happens
 
-Explain how we use shiny, leaflet and ggplotly to achieve this
+
+From ggplot2 to plotly (example)
 ========================================================
 
-```{r, echo=FALSE, message=FALSE}
-library(dplyr)
-library(leaflet)
-library(webshot)
+```{r, message= FALSE}
+library(tidyverse);library(plotly)
+p <- ggplot(data = diamonds) + 
+  geom_bar(mapping = aes(x = cut, fill = clarity), position = "dodge")
 ```
 
-
-Demonstrate a ggplotly from a normal ggplot
-========================================================
-
-```{r}
-m <- leaflet() %>%
-  addTiles() %>%  # Add default OpenStreetMap map tiles
-  addMarkers(lng=174.768, lat=-36.852, popup="The birthplace of R")
-m  
-
+```{r, eval=FALSE}
+ggplotly(p)
 ```
 
+```{r, echo=FALSE}
+p
+```
 
-
-Slide 5
+Using shiny, leaflet and plotly together
 ========================================================
-Thanks for having a look!
-Here is the link to the github repo that contains all the code
+
+- Shiny hosts the control widgets 
+
+- Leaflet uses data interacting with Shiny's control widgets to generate the map
+
+- plotly visualises the output of the interactions converting a ggplot2 object to an interactive visualisation
+
+
+Conclusion and links
+========================================================
+Thanks for having a look! 
+
+- You can see the app in action here:
+https://spymark.shinyapps.io/reactive_leaflet/
+
+- Here is the link to the github repo that contains all the code
 https://github.com/spymark/data_products_proj
+
