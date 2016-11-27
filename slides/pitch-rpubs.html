@@ -773,19 +773,44 @@ hljs.initHighlightingOnLoad();
 
 </section>
 <section data-transition="default" data-transition-speed="default">
-<h3>Explain how we use shiny, leaflet and ggplotly to achieve this</h3>
-<div class="slideContent" >
-<pre><code class="r">library(tidyverse)
+<h3>From ggplot2 to plotly (example)</h3>
+<div class="mediaInline slideContent" >
+<pre><code class="r">library(tidyverse);library(plotly)
+p &lt;- ggplot(data = diamonds) + 
+  geom_bar(mapping = aes(x = cut, fill = clarity), position = &quot;dodge&quot;)
 </code></pre>
+
+<pre><code class="r">ggplotly(p)
+</code></pre>
+
+<p><img src="data:image/png;base64,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" alt="plot of chunk unnamed-chunk-3"/></p>
 
 </div>
 
 </section>
 <section data-transition="default" data-transition-speed="default">
-<h3>Demonstrate a ggplotly from a normal ggplot</h3>
+<h3>Using shiny, leaflet and plotly together</h3>
 <div class="slideContent" >
-<pre><code>Error in loadNamespace(name) : there is no package called &#39;webshot&#39;
-</code></pre>
+<ul>
+<li><p>Shiny hosts the control widgets </p></li>
+<li><p>Leaflet uses data interacting with Shiny&#39;s control widgets to generate the map</p></li>
+<li><p>plotly visualises the output of the interactions converting a ggplot2 object to an interactive visualisation</p></li>
+</ul>
+
+</div>
+
+</section>
+<section data-transition="default" data-transition-speed="default">
+<h3>Conclusion and links</h3>
+<div class="slideContent" >
+<p>Thanks for having a look! </p>
+
+<ul>
+<li><p>You can see the app in action here:
+<a href="https://spymark.shinyapps.io/reactive_leaflet/">https://spymark.shinyapps.io/reactive_leaflet/</a></p></li>
+<li><p>Here is the link to the github repo that contains all the code
+<a href="https://github.com/spymark/data_products_proj">https://github.com/spymark/data_products_proj</a></p></li>
+</ul>
 
 </div>
 
