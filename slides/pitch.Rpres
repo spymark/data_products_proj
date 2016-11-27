@@ -19,20 +19,20 @@ What can you do in the app?
 Explain how we use shiny, leaflet and ggplotly to achieve this
 ========================================================
 
-```{r}
-library(tidyverse)
+```{r, echo=FALSE, message=FALSE}
+library(dplyr)
+library(leaflet)
 ```
 
 
 Demonstrate a ggplotly from a normal ggplot
 ========================================================
 
-```{r, echo=FALSE}
-library(tidyverse)
-library(plotly)
-p <- ggplot(data = diamonds) + 
-  geom_bar(mapping = aes(x = cut, fill = clarity), position = "dodge")
-ggplotly(p)
+```{r}
+m <- leaflet() %>%
+  addTiles() %>%  # Add default OpenStreetMap map tiles
+  addMarkers(lng=174.768, lat=-36.852, popup="The birthplace of R")
+m  # Print the map
 ```
 Slide 5
 ========================================================

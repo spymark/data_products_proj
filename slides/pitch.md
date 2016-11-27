@@ -20,9 +20,6 @@ Explain how we use shiny, leaflet and ggplotly to achieve this
 ========================================================
 
 
-```r
-library(tidyverse)
-```
 
 
 Demonstrate a ggplotly from a normal ggplot
