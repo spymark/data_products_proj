@@ -22,6 +22,7 @@ Explain how we use shiny, leaflet and ggplotly to achieve this
 ```{r, echo=FALSE, message=FALSE}
 library(dplyr)
 library(leaflet)
+library(webshot)
 ```
 
 
@@ -32,8 +33,12 @@ Demonstrate a ggplotly from a normal ggplot
 m <- leaflet() %>%
   addTiles() %>%  # Add default OpenStreetMap map tiles
   addMarkers(lng=174.768, lat=-36.852, popup="The birthplace of R")
-m  # Print the map
+m  
+
 ```
+
+
+
 Slide 5
 ========================================================
 Thanks for having a look!

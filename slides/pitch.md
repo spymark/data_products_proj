@@ -29,5 +29,5 @@ Demonstrate a ggplotly from a normal ggplot
 
 
 ```
-Error in loadNamespace(name) : there is no package called 'webshot'
+Error in file(con, "rb") : cannot open the connection
 ```
